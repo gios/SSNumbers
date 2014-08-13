@@ -1,4 +1,4 @@
-### SSTNumbers: Backbone Project
+### SSNumbers: Backbone Project
 SSNumbers - demonstration application;
 
 ### SSNumbers: Exploitation
