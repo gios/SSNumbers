@@ -219,8 +219,8 @@ pip-log.txt
 #############
 
 # npm
-/node_modules
+node_modules/
 
 # Bower
 
-/bower_components
+bower_components/
