@@ -222,4 +222,5 @@ pip-log.txt
 node_modules/
 
 # Bower
+
 bower_components/
