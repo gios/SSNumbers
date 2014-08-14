@@ -14,7 +14,7 @@ module.exports = function(grunt) {
     },
     cssmin: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */'
       },
       minify: {
         src: 'src/css/<%= pkg.name %>.css',
