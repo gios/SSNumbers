@@ -28,6 +28,7 @@ module.exports = function(grunt) {
           baseUrl: ".",
           mainConfigFile: "src/js/config.js",
           name: "src/js/SSNumbers.js",
+          include: ["bower_components/requirejs/require.js"],
           out: "release/SSNumbers.min.js"
         }
       }
