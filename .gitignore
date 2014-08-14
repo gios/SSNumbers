@@ -218,8 +218,8 @@ pip-log.txt
 ## Custom
 #############
 
-# npm
+#npm
 node_modules/
 
-# Bower
+#Bower
 bower_components/
