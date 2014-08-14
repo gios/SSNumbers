@@ -19,7 +19,7 @@ module.exports = function(grunt) {
       },
       minify: {
         src: 'src/css/<%= pkg.name %>.css',
-        dest: 'build/<%= pkg.name %>.min.css'
+        dest: 'release/<%= pkg.name %>.min.css'
       }
     },
     requirejs: {
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
           baseUrl: ".",
           mainConfigFile: "src/js/config.js",
           name: "src/js/SSNumbers.js",
-          out: "build/SSNumbers.min.js"
+          out: "release/SSNumbers.min.js"
         }
       }
     }
