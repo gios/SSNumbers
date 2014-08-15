@@ -2,8 +2,7 @@
 SSNumbers - demonstration application;
 
 ### SSNumbers: Installation
-Just connect SSNumbers.min.css and SSNumbers.min.js to your HTML file;:smile:
-:ua:
+Just connect SSNumbers.min.css and SSNumbers.min.js to your HTML file:smile:
 
 ### SSNumbers: Exploitation
 ```
