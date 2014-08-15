@@ -248,7 +248,7 @@ require(['jquery', 'underscore', 'backbone', 'model', 'collection'], function($,
 		collection: tableCollection,
 	});
 
-	//Render the View 
+	//Render the View
 	tableView.render();
 
 	//Create Element for Statistics
@@ -279,9 +279,6 @@ require(['jquery', 'underscore', 'backbone', 'model', 'collection'], function($,
 	var statisticView = new StatisticView({
 		model: new Model.Statistic
 	});
-
-	//Render Statistic
-	statisticView.render();
 
 	// Random click :)
 	$(document).ready(function() {
