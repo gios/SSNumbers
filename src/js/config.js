@@ -1,3 +1,7 @@
+/*SSNumbers
+	version: 1.2;
+	Require Config;
+*/
 var require = {
   'baseUrl': '.',
   'paths': {

@@ -1,5 +1,7 @@
-// SSNumbers
-// version: 0.8.1;
+/*SSNumbers
+	version: 1.2;
+	Main;
+*/
 "use strict";
 
 require(['jquery', 'underscore', 'backbone', 'model', 'collection'], function($, _, Backbone, Model, Collection) {
@@ -138,7 +140,7 @@ require(['jquery', 'underscore', 'backbone', 'model', 'collection'], function($,
 
 	//Block right click
 	document.oncontextmenu = function() {
-		return false
+		return false;
 	};
 
 	//Create own event
@@ -158,16 +160,46 @@ require(['jquery', 'underscore', 'backbone', 'model', 'collection'], function($,
 			vent.on("TableCorrect", function() {
 				i++;
 				$(this.el).find("td").click(function() {
-					$(this).attr("id", "correct");
-					statisticView.render('correct', i);
+					if($(this).attr("id") == 'correct' || $(this).attr("id") == 'incorrect') {
+						$(this).click(function() {
+							return false;
+						});
+						$(this).contextmenu(function() {
+							return false;
+						});
+					} else {
+						$(this).attr("id", "correct");
+						statisticView.render('correct', i);
+						$(this).click(function() {
+							return false;
+						});
+						$(this).contextmenu(function() {
+							return false;
+						});
+					}
 				});
 				console.log("Correct");
 			}, this);
 			vent.on("TableIncorrect", function() {
 				j++;
 				$(this.el).find("td").contextmenu(function() {
-					$(this).attr("id", "incorrect");
-					statisticView.render('incorrect', j);
+					if($(this).attr("id") == 'correct' || $(this).attr("id") == 'incorrect') {
+						$(this).click(function() {
+							return false;
+						});
+						$(this).contextmenu(function() {
+							return false;
+						});
+					} else {
+						$(this).attr("id", "incorrect");
+						statisticView.render('incorrect', j);
+						$(this).click(function() {
+							return false;
+						});
+						$(this).contextmenu(function() {
+							return false;
+						});
+					}
 				});
 				console.log("Incorrect");
 			}, this);
@@ -226,7 +258,7 @@ require(['jquery', 'underscore', 'backbone', 'model', 'collection'], function($,
 		template: _.template("<strong><p>Correct Answers</p><%= correct %></strong><strong><p>Incorrect Answers</p><%= incorrect %></strong>"),
 
 		initialize: function() {
-			//this.model.set("correct", 0);
+			this.$el.html(this.template(this.model.toJSON()));
 		},
 
 		render: function(text, count) {

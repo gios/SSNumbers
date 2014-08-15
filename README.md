@@ -7,12 +7,6 @@ SSNumbers - demonstration application;
 2) Right click on number area - red color;
 ```
 
-### SSNumbers: Issues
-```
-1) First click doesn't work;
-2) May click on the head of table;
-```
-
 ### SSNumbers: Version
-####0.8.1
+####1.2
 ---

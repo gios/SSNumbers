@@ -1,5 +1,5 @@
 /*SSNumbers
-	version: 0.8.1;
+	version: 1.2;
 	Collection;
 */
 "use strict";
