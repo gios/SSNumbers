@@ -13,5 +13,5 @@ Just connect SSNumbers.min.css and SSNumbers.min.js to your HTML file.
 ```
 
 ### SSNumbers: Version
-####1.2
+####1.3
 ---

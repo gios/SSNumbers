@@ -1,5 +1,5 @@
 /*SSNumbers
-	version: 1.2;
+	version: 1.3;
 	Main;
 */
 "use strict";
@@ -176,6 +176,9 @@ require(['jquery', 'underscore', 'backbone', 'model', 'collection'], function($,
 						$(this).contextmenu(function() {
 							return false;
 						});
+						$(this).animate({
+							opacity: 0.7
+						}, 1000);
 					}
 				});
 				console.log("Correct");
@@ -199,6 +202,9 @@ require(['jquery', 'underscore', 'backbone', 'model', 'collection'], function($,
 						$(this).contextmenu(function() {
 							return false;
 						});
+						$(this).animate({
+							opacity: 0.7
+						}, 1000);
 					}
 				});
 				console.log("Incorrect");
