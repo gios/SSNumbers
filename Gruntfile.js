@@ -19,7 +19,7 @@ module.exports = function(grunt) {
       },
       minify: {
         src: 'src/css/<%= pkg.name %>.css',
-        dest: 'release/<%= pkg.name %>.min.css'
+        dest: 'build/<%= pkg.name %>.min.css'
       }
     },
     requirejs: {
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
           mainConfigFile: "src/js/config.js",
           name: "src/js/SSNumbers.js",
           include: ["bower_components/requirejs/require.js"],
-          out: "release/SSNumbers.min.js"
+          out: "build/SSNumbers.min.js"
         }
       }
     }

@@ -1,6 +1,5 @@
-/*SSNumbers
-	version: 0.8.1;
-*/
+// SSNumbers
+// version: 0.8.1;
 "use strict";
 
 require(['jquery', 'underscore', 'backbone', 'model', 'collection'], function($, _, Backbone, Model, Collection) {
