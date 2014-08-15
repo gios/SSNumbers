@@ -146,8 +146,8 @@ require(['jquery', 'underscore', 'backbone', 'model', 'collection'], function($,
 	_.extend(vent, Backbone.Events);
 
 	//Iterator Statistic
-	var i = 0;
-	var j = 0;
+	window.i = 0;
+	window.j = 0;
 
 	//Declare View 
 	var TableView = Backbone.View.extend({
@@ -155,13 +155,27 @@ require(['jquery', 'underscore', 'backbone', 'model', 'collection'], function($,
 		el: 'body',
 
 		initialize: function() {
-			vent.on("TableCorrect", this.correct, this);
-			vent.on("TableIncorrect", this.incorrect, this);
+			vent.on("TableCorrect", function() {
+				i++;
+				$(this.el).find("td").click(function() {
+					$(this).attr("id", "correct");
+					statisticView.render('correct', i);
+				});
+				console.log("Correct");
+			}, this);
+			vent.on("TableIncorrect", function() {
+				j++;
+				$(this.el).find("td").contextmenu(function() {
+					$(this).attr("id", "incorrect");
+					statisticView.render('incorrect', j);
+				});
+				console.log("Incorrect");
+			}, this);
 		},
 		//Render View
 		render: function() {
 			var viewHtml = '<table border="1">';
-			viewHtml += "<thead><td colspan='10'>Table 10x10</td></thead>";
+			viewHtml += "<h2>SSNumbers</h2>";
 			//Iterate collection
 			_.each(this.collection.models, function(m) {
 				var collectionHtml = '<tr><td class="number">' + m.get('first') + '</td><td class="number">' + m.get('second') +
@@ -180,41 +194,14 @@ require(['jquery', 'underscore', 'backbone', 'model', 'collection'], function($,
 				i++;
 				$(this).attr("id", "" + i);
 			});
-
-			//Block right and click on header table
-			document.getElementById("0").click = function() {
-				return false
-			}
-
-			document.getElementById("0").contextmenu = function() {
-				return false
-			}
 		},
 		events: {
-			'click': 'TotalCorrect',
-			'contextmenu': 'TotalIncorrect'
-		},
-		correct: function() {
-			$(this.el).find("td").click(function() {
-				$(this).attr("id", "correct");
-			});
-			i++;
-			statisticView.render('correct', i);
-			console.log("Correct");
-		},
-		incorrect: function() {
-			$(this.el).find("td").contextmenu(function() {
-				$(this).attr("id", "incorrect");
-			});
-			j++;
-			statisticView.render('incorrect', j);
-			console.log("Incorrect");
-		},
-		TotalCorrect: function() {
-			vent.trigger("TableCorrect");
-		},
-		TotalIncorrect: function() {
-			vent.trigger("TableIncorrect");
+			'click .number': function() {
+				vent.trigger("TableCorrect");
+			},
+			'contextmenu .number': function() {
+				vent.trigger("TableIncorrect");
+			}
 		}
 	});
 
@@ -243,8 +230,8 @@ require(['jquery', 'underscore', 'backbone', 'model', 'collection'], function($,
 		},
 
 		render: function(text, count) {
-			this.$el.html(this.template(this.model.toJSON()));
 			this.model.set(text, count);
+			this.$el.html(this.template(this.model.toJSON()));
 			console.log("Correct = " + this.model.get('correct'));
 			console.log("Incorrect = " + this.model.get('incorrect'));
 		}
@@ -257,4 +244,12 @@ require(['jquery', 'underscore', 'backbone', 'model', 'collection'], function($,
 
 	//Render Statistic
 	statisticView.render();
+
+	// Random click :)
+	$(document).ready(function() {
+		var random = Math.floor(Math.random() * 100);
+		console.log(random);
+		$('body').find('#' + random).click();
+		$('body').find('#' + random).contextmenu();
+	});
 });
